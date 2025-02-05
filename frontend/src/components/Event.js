@@ -1,5 +1,6 @@
 import React from 'react'
 import {Card} from 'react-bootstrap'
+import Follower from './Follower'
 
 
 
@@ -14,6 +15,7 @@ const Event = ({event}) => {
         <Card.Text>{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' ,weekday:'long'}).format(new Date(event.date))}</Card.Text>
         {/*<Card.Text>{new Date(event.date).toLocaleDateString()}</Card.Text>*/}
         <Card.Text>{event.time}</Card.Text>
+        <Follower followers={event.followers}></Follower>
       </Card.Body>
     </Card> 
     

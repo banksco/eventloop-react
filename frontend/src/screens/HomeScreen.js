@@ -6,7 +6,7 @@ import Event from '../components/Event'
 const HomeScreen = () => {
   return (
     <>
-    <Row >
+    <Row  >
         
         {events.map(e=>(
                  

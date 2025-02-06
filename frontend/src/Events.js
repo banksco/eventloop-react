@@ -9,7 +9,8 @@ const Events=[
       image: "/images/Technology.jpg",
       category: "Technology",
       tickets_available: true,
-      ticket_price: 199
+      ticket_price: 199,
+      followers: "10k"
     },
     {
       id: "2",
@@ -21,7 +22,8 @@ const Events=[
       image: "/images/music-1.jpg",
       category: "Music & Dance",
       tickets_available: true,
-      ticket_price: 75
+      ticket_price: 75,
+      followers: "20k"
     },
     {
       id: "3",
@@ -33,7 +35,8 @@ const Events=[
       image: "/images/Art-3.jpg",
       category: "Art",
       tickets_available: false,
-      ticket_price: 0
+      ticket_price: 0,
+      followers: "10k"
     },
     {
       id: "4",
@@ -45,7 +48,8 @@ const Events=[
       image: "/images/food.jpg",
       category: "Food & Drink",
       tickets_available: true,
-      ticket_price: 120
+      ticket_price: 120,
+      followers: "4.8k"
     },
     {
       id: "5",
@@ -57,7 +61,8 @@ const Events=[
       image: "/images/art-2.jpg",
       category: "Art",
       tickets_available: true,
-      ticket_price: 50
+      ticket_price: 50,
+      followers: "15k"
     },
     
     
@@ -71,7 +76,8 @@ const Events=[
       image: "/images/art.jpg",
       category: "Art",
       tickets_available: true,
-      ticket_price: 80
+      ticket_price: 80,
+      followers: "5.5k"
     },
     
     {
@@ -84,7 +90,8 @@ const Events=[
       image: "/images/Dance.jpg",
       category: "Music & Dance",
       tickets_available: true,
-      ticket_price: 60
+      ticket_price: 60,
+      followers: "10k"
     },
     {
       id: "8",
@@ -96,7 +103,8 @@ const Events=[
       image: "/images/food-2.jpg",
       category: "Food & Drink",
       tickets_available: true,
-      ticket_price: 45
+      ticket_price: 45,
+      followers: "8k"
     },
     {
       id: "9",
@@ -108,7 +116,8 @@ const Events=[
       image: "/images/gardening.jpg",
       category: "Art",
       tickets_available: true,
-      ticket_price: 30
+      ticket_price: 30,
+      followers: "10k"
     },
     
     {
@@ -121,7 +130,8 @@ const Events=[
       image: "/images/science.jpg",
       category: "Technology",
       tickets_available: false,
-      ticket_price: 0
+      ticket_price: 0,
+      followers: "2k"
     }]
 
     export default Events;

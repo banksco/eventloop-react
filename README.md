@@ -30,3 +30,7 @@
 2. Open the application in your browser: `http://localhost:3000`
 3. Explore the different screens: Home, Event Details, Category view.
 4. Filter events by category.
+
+## Index Layout
+[![screenshot.png](https://i.postimg.cc/v8LjkxgC/screenshot.png)](https://postimg.cc/w3M0svkk)
+

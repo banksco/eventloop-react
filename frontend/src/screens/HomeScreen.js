@@ -2,11 +2,13 @@ import React from 'react'
 import events from '../Events'
 import {Col,Row} from 'react-bootstrap'
 import Event from '../components/Event'
+import HeroSlider from '../components/HeroSlider'
 const HomeScreen = () => {
   return (
     <>
-    
-    
+    <Row>
+      <HeroSlider />
+    </Row>
     <Row  >
         
         {events.map(e=>(

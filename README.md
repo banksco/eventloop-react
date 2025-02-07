@@ -2,14 +2,15 @@
 
 ## Features
 
-- **Components:** Utilizes reusable components like `Event`, `Header`, `Footer`, and `Follower` for efficient development.
-- **Home Screen:** Displays a curated selection of events.
+- **Components:** Utilizes reusable components like `Event`, `Header`, `Footer`, `Hero Slider`, and `Follower` for efficient development.
+- **Home Screen:** Displays a curated selection of events and Image Carousel Slider.
 - **Event Screen:** Provides detailed information about individual events.
 - **Category Screen:** Allows users to filter events by category.
 - **Theming:** Integrated Bootswatch themes for easy styling.
 - **Styling:** Leverages React-Bootstrap for consistent and responsive styling.
 - **Iconography:** Incorporates Font Awesome icons for visual appeal.
 - **Routing:** Implemented routing using `react-router-dom`.
+  
 
 ## Technologies Used
 

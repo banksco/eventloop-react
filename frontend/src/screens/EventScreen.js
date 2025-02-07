@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import {Row, Col, Image, Card, Button, ListGroup} from 'react-bootstrap'
 import Events from '../Events'
 
+
 const EventScreen = () => {
   const params = useParams ()
   const event = Events.find(p =>p.id === params.id)

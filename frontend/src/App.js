@@ -7,6 +7,7 @@ import HomeScreen from "./screens/HomeScreen";
 import EventScreen from "./screens/EventScreen";
 import CategoryScreen from "./screens/CategoryScreen";
 
+
 const App = () => {
   return (
   <>
@@ -14,7 +15,7 @@ const App = () => {
     <Header />
     <main>
       <Container>
-          <Routes>
+        <Routes>
             <Route path="/" exact element={<HomeScreen />} />
             <Route path="/event/:id" exact element={<EventScreen />} />
             <Route path="/category/:categ" element={<CategoryScreen/>}></Route>

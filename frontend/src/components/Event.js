@@ -17,6 +17,7 @@ const Event = ({event}) => {
       <Link to={`/event/${event.id}`}>
         <Card.Title>{event.title}</Card.Title>
         </Link>
+        {/*Intl.DateTimeFormat is a Javascript Object to format date and time */}
         <Card.Text>{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' ,weekday:'short'}).format(new Date(event.date))}</Card.Text>
         {/*<Card.Text>{new Date(event.date).toLocaleDateString()}</Card.Text>*/}
         <Card.Text>{event.time}</Card.Text>

@@ -32,5 +32,4 @@
 4. Filter events by category.
 
 ## Index Layout
-![screenshot.png](https://i.postimg.cc/v8LjkxgC/screenshot.png)
-
+[![screenshot.png](https://i.postimg.cc/5Nm3qDKC/screenshot.png)](https://postimg.cc/jLLPR3bx)

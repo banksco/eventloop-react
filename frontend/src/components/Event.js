@@ -25,8 +25,7 @@ const Event = ({event}) => {
       </Card.Body>
     </Card> 
     
-    
-    
+  
     </>
   )
 }

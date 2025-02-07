@@ -7,6 +7,7 @@ const HomeScreen = () => {
   return (
     <>
     <Row>
+    {/* Carousel Component*/}
       <HeroSlider />
     </Row>
     <Row  >

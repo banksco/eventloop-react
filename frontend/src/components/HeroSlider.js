@@ -1,6 +1,7 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 
+/*bootstrap carousel images 1920x 400 px, 72 dpi*/
 
 const HeroSlider = () => {
   return (

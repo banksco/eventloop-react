@@ -10,7 +10,7 @@ const EventScreen = () => {
   const params = useParams ()
   const event = Events.find(p =>p.id === params.id)
 
-
+/* Event detail card components */
   return (
     <>
     <Container>

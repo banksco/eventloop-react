@@ -1,5 +1,8 @@
 # EventLoop
 
+## YouTube Video Links 
+- Courtney's Link: [(https://youtu.be/PRfsq-IdzUg)]
+
 ## Features
 
 - **Components:** Utilizes reusable components like `Event`, `Header`, `Footer`, `Hero Slider`, and `Follower` for efficient development.

@@ -1,0 +1,23 @@
+{
+  "name": "eventloop-react",
+  "version": "1.0.0",
+  "description": "React Event Loop App",
+  "homepage": "https://github.com/banksco/eventloop-react#readme",
+  "bugs": {
+    "url": "https://github.com/banksco/eventloop-react/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/banksco/eventloop-react.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

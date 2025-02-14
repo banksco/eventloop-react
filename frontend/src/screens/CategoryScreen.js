@@ -1,15 +1,28 @@
-import React from 'react'
-import Events from '../Events'
+import React, { useEffect, useState } from 'react'
+
 import { useParams,Link } from 'react-router-dom'
 import {Row,Col } from 'react-bootstrap'
 
 import Event from '../components/Event';
 
 const CategoryScreen = () => {
-console.log("in category screen")
+
 
     const params= useParams();
-    console.log(params.categ);
+
+    const[events,setEvents]=useState([])
+
+    useEffect(()=>{
+      const fetchEvents= async()=>{
+         const {data}=await axios.get(`/api/category/${params.categ}`)
+         setEvents(data)
+      }
+
+
+      fetchEvents()
+
+    })
+    
     
 
 
@@ -28,7 +41,7 @@ console.log("in category screen")
 
       /*Filter method returns an array of objects*/
       /*storing the output in local array is not possible */
-             Events.filter(e=>e.category===params.categ).map(e=>
+             events.map(e=>
             <Col sm={12} lg={4} md={6} xl={3}>
             <Event event={e}/></Col>
         )

@@ -1,15 +1,22 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import axios from 'axios'
 import {Container} from 'react-bootstrap';
 import { useParams, Link } from 'react-router-dom'
 import {Row, Col, Image, Card, Button, ListGroup} from 'react-bootstrap'
-import Events from '../Events'
 import GMap from '../components/GMap';
 
 
 const EventScreen = () => {
   const params = useParams ()
-  const event = Events.find(p =>p.id === params.id)
-
+  
+const [event, setEvent] = useState({})
+useEffect(() => {
+  const fetchEvent = async () => {
+    const {data} = await axios.get(`/api/event/${params.id}`)
+    setEvent(data)
+  }
+  fetchEvent()
+})
 /* Event detail card components */
   return (
     <>

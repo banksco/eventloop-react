@@ -1,7 +1,9 @@
 import express from 'express'
+import dotenv from 'dotenv'
 import events from './data/Events.js'
 
 const app=express();
+dotenv.config()
 
 app.get('/api/events',(req,res)=>{
     res.json(events)

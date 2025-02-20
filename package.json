@@ -18,10 +18,11 @@
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
     "client": "npm start --prefix frontend",
-    "event":  "concurrently \"npm run server\" \"npm run client\" "
+    "event": "concurrently \"npm run server\" \"npm run client\" "
   },
   "dependencies": {
     "concurrently": "^9.1.2",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2"
   }
 }

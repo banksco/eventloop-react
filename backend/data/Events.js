@@ -1,6 +1,5 @@
 const Events=[
     {
-      id: "1",
       title: "Tech Conference 2024",
       description: "Join us for the leading tech conference of the year!",
       date: "2025-03-15",
@@ -13,7 +12,6 @@ const Events=[
       followers: "10k"
     },
     {
-      id: "2",
       title: "Summer Music Festival",
       descriptio: "A weekend of incredible music and fun!",
       date: "2025-07-20",
@@ -26,7 +24,6 @@ const Events=[
       followers: "20k"
     },
     {
-      id: "3",
       title: "Art Exhibition",
       description: "Explore the world of modern art.",
       date: "2025-05-10",
@@ -39,7 +36,6 @@ const Events=[
       followers: "10k"
     },
     {
-      id: "4",
       title: "Food and Wine Festival",
       description: "Taste the best food and wine from around the world.",
       date: "2025-09-25",
@@ -52,7 +48,6 @@ const Events=[
       followers: "4.8k"
     },
     {
-      id: "5",
       title: "Comedy Show",
       description: "Get ready for a night of laughter!",
       date: "2025-04-12",

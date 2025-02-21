@@ -14,7 +14,7 @@ const CategoryScreen = () => {
 
     useEffect(()=>{
       const fetchEvents= async()=>{
-         const {data}=await axios.get(`/api/category/${params.categ}`)
+         const {data}=await axios.get(`/api/events/category/${params.categ}`)
          setEvents(data)
       }
 

@@ -1,13 +1,15 @@
 import mongoose from 'mongoose';
 
-const reviewSchema=mongoose.schema({
+
+const reviewSchema=mongoose.Schema({
     name:{type:String,required:true},
     rating:{type:Number,required:true},
     comment:{type:String},
 },{timestamps:true})
 
-const eventSchema=mongoose.schema({
-    user:{type:mongoose.schema.Types.ObjectId,ref:'users',required:true},
+
+const eventSchema=mongoose.Schema({
+    user:{type:mongoose.Schema.Types.ObjectId,ref:'users',required:true},
     title:{type:String,required:true},
     description:{type:String},
     date:{type:String,required:true},

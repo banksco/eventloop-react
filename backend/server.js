@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import events from './data/Events.js'
 import connectDB from './config/db.js';
 
-const app = express();
+const app = express()
 dotenv.config()
 connectDB()
 

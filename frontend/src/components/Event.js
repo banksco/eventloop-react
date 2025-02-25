@@ -10,11 +10,11 @@ const Event = ({event}) => {
     <>
     <br></br>
     <Card>
-      <Link to={`/event/${event.id}`}>
+      <Link to={`/event/${event._id}`}>
       <Card.Img variant="top" src={event.image}style={{ width: '100%', height: 'auto', objectFit: 'cover' ,display: 'block', margin: '0 auto' }}/>
       </Link>
       <Card.Body>
-      <Link to={`/event/${event.id}`}>
+      <Link to={`/event/${event._id}`}>
         <Card.Title>{event.title}</Card.Title>
         </Link>
         {/*Intl.DateTimeFormat is a Javascript Object to format date and time */}

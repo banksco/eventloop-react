@@ -12,6 +12,7 @@ const EventScreen = () => {
 const [event, setEvent] = useState({})
 useEffect(() => {
   const fetchEvent = async () => {
+    
     const {data} = await axios.get(`/api/events/${params.id}`)
     setEvent(data)
   }

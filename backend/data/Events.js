@@ -62,7 +62,6 @@ const Events=[
     
     
     {
-    
       title: "Film Festival",
       description: "A celebration of independent cinema.",
       date: "2025-10-28",
@@ -76,7 +75,6 @@ const Events=[
     },
     
     {
-     
       title: "Dance Performance",
       description: "Experience the beauty of modern dance.",
       date: "2025-02-22",
@@ -89,7 +87,6 @@ const Events=[
       followers: "10k"
     },
     {
-     
       title: "Craft Beer Tasting",
       description: "Sample a wide variety of craft beers.",
       date: "2025-12-07",
@@ -102,7 +99,6 @@ const Events=[
       followers: "8k"
     },
     {
-     
       title: "Gardening Workshop",
       description: "Learn the basics of gardening.",
       date: "2025-03-30",
@@ -116,7 +112,6 @@ const Events=[
     },
     
     {
-      
       title: "Science Fair",
       description: "See the amazing science projects created by students.",
       date: "2025-06-22",

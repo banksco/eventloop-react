@@ -23,12 +23,13 @@
     "data:destroy": "node backend/seeder.js -d"
   },
   "dependencies": {
-    "bcrypt": "^5.1.1",
     "bcryptjs": "^3.0.2",
     "concurrently": "^9.1.2",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "express-async-handler": "^1.2.0",
-    "mongoose": "^8.10.1"
+    "mongodb": "^6.13.1",
+    "mongoose": "^8.10.1",
+    "nodemon": "^3.1.9"
   }
 }

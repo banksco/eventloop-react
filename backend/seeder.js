@@ -13,12 +13,13 @@ const importData = async () => {
 
         await Event.deleteMany()
         await User.deleteMany()
-
+       
         const createdUsers = await User.insertMany(Users)
+      
         const adminUser = createdUsers[0]._id
 
-        const sampleEvents = Events.map(event => {
-            return {...event, user:adminUser}
+        const sampleEvents = Events.map(Event => {
+            return {...Event, User: adminUser}
         })
 
         await Event.insertMany(sampleEvents)

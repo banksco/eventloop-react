@@ -18,8 +18,8 @@ const importData = async () => {
       
         const adminUser = createdUsers[0]._id
 
-        const sampleEvents = Events.map(Event => {
-            return {...Event, User: adminUser}
+        const sampleEvents = Events.map(event => {
+            return {...event, user: adminUser}
         })
 
         await Event.insertMany(sampleEvents)

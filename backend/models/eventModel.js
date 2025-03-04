@@ -19,6 +19,11 @@ const eventSchema=mongoose.Schema({
     category:{type:String,required:true},
     tickets_available:{type:Boolean,required:true,default:false},
     ticket_price:{type:Number,required:true,default:0},
+    countInStock: {
+        type: Number,
+        required: true,
+        default:0
+    },
     followers:{type:String},
     review:[reviewSchema]
 },{timestamps:true})

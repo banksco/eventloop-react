@@ -47,6 +47,7 @@ useEffect(() => {
             <ListGroup.Item>Date: {event.date}</ListGroup.Item>
             <ListGroup.Item>Time: {event.time}</ListGroup.Item>
             <ListGroup.Item>Category: {event.category}</ListGroup.Item>
+            <ListGroup.Item>Status: {event.countInStock > 0 ? 'In Stock' : 'Out Of Stock'}</ListGroup.Item>
             </Card.Text>
             </Card.Body>
           </ListGroup>
@@ -62,7 +63,7 @@ useEffect(() => {
   <Button
                   className='btn-block'
                   type='button'
-                  disabled={event.tickets_available === 0}
+                  disabled={event.countInStock === 0}
                 >
                   Add To Cart
                 </Button>

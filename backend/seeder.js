@@ -18,8 +18,8 @@ const importData = async () => {
       
         const adminUser = createdUsers[0]._id
 
-        const sampleEvents = Events.map(Event => {
-            return {...Event, user: adminUser}
+        const sampleEvents = Events.map(event => {
+            return {...event, user: adminUser}
         })
 
         await Event.insertMany(sampleEvents)
@@ -48,7 +48,7 @@ const destroyData  = async () => {
     }
 }
 
-if (process.argv[2]=== '-d'){
+if (process.argv[2] === '-d'){
     destroyData()
 } else {
     importData()

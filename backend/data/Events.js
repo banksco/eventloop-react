@@ -9,7 +9,8 @@ const Events=[
       category: "Technology",
       tickets_available: true,
       ticket_price: 199,
-      followers: "10k"
+      followers: "10k",
+      countInStock: 400
     },
     {
       title: "Summer Music Festival",
@@ -21,7 +22,8 @@ const Events=[
       category: "Music & Dance",
       tickets_available: true,
       ticket_price: 75,
-      followers: "20k"
+      followers: "20k",
+      countInStock: 0
     },
     {
       title: "Art Exhibition",
@@ -33,7 +35,8 @@ const Events=[
       category: "Art",
       tickets_available: false,
       ticket_price: 0,
-      followers: "10k"
+      followers: "10k",
+      countInStock: 80
     },
     {
       title: "Food and Wine Festival",
@@ -45,7 +48,8 @@ const Events=[
       category: "Food & Drink",
       tickets_available: true,
       ticket_price: 120,
-      followers: "4.8k"
+      followers: "4.8k",
+      countInStock: 11
     },
     {
       title: "Comedy Show",
@@ -57,7 +61,8 @@ const Events=[
       category: "Art",
       tickets_available: true,
       ticket_price: 50,
-      followers: "15k"
+      followers: "15k",
+      countInStock: 500
     },
     
     
@@ -71,7 +76,8 @@ const Events=[
       category: "Art",
       tickets_available: true,
       ticket_price: 80,
-      followers: "5.5k"
+      followers: "5.5k",
+      countInStock: 1
     },
     
     {
@@ -84,7 +90,8 @@ const Events=[
       category: "Music & Dance",
       tickets_available: true,
       ticket_price: 60,
-      followers: "10k"
+      followers: "10k",
+      countInStock: 48
     },
     {
       title: "Craft Beer Tasting",
@@ -96,7 +103,8 @@ const Events=[
       category: "Food & Drink",
       tickets_available: true,
       ticket_price: 45,
-      followers: "8k"
+      followers: "8k",
+      countInStock: 9
     },
     {
       title: "Gardening Workshop",
@@ -108,7 +116,8 @@ const Events=[
       category: "Art",
       tickets_available: true,
       ticket_price: 30,
-      followers: "10k"
+      followers: "10k",
+      countInStock: 11
     },
     
     {
@@ -121,7 +130,8 @@ const Events=[
       category: "Technology",
       tickets_available: false,
       ticket_price: 0,
-      followers: "2k"
+      followers: "2k",
+      countInStock: 400
     }]
 
     export default Events;

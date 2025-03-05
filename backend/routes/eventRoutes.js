@@ -13,7 +13,7 @@ router.get('/',asyncHandler(async(req,res)=>{
 router.get('/:id',asyncHandler(async(req,res)=>{
     
    const event= await( Event.findById(req.params.id))
-  
+ 
    if(event){
     res.json(event)
    }

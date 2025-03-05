@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
+import React, {useEffect} from 'react'
+
 import {Col,Row} from 'react-bootstrap'
 import Event from '../components/Event'
 import HeroSlider from '../components/HeroSlider'
@@ -31,7 +31,7 @@ return (
         error ?(<Message variant='info'>{error}</Message>):
       events.map(e=>(
                 
-              <Col sm={12} lg={4} md={6} xl={3}>
+              <Col key= {e.id} sm={12} lg={4} md={6} xl={3}>
                   <Event event={e}></Event>
 
               </Col>

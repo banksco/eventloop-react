@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import {Container} from 'react-bootstrap';
-import { useParams, Link } from 'react-router-dom'
-import {Row, Col, Image, Card, Button, ListGroup} from 'react-bootstrap'
+import {Container, ListGroupItem} from 'react-bootstrap';
+import { useParams, Link, useNavigate } from 'react-router-dom'
+import {Row, Col, Image, Card, Button, ListGroup,Form} from 'react-bootstrap'
 import GMap from '../components/GMap';
 import { listEventDetails } from '../actions/eventActions';
 import Loader from '../components/Loader';
@@ -13,13 +13,18 @@ import Message from '../components/Message';
 const EventScreen = () => {
   const params = useParams ()
   const dispatch = useDispatch()
-  
+  const navigate=useNavigate()
+  const [qty,setQty]=useState(1)
 useEffect(() => {
   dispatch(listEventDetails(params.id))
 }, [dispatch, params])
 
 const eventDetails = useSelector((state) => state.eventDetails)
 const {loading, event, error} = eventDetails
+const buyTicketHandler=()=>{
+navigate(`/cart/${params.id}?qty=${qty}`)
+}
+
 /* Event detail card components */
   return (
     <>
@@ -53,6 +58,22 @@ const {loading, event, error} = eventDetails
                   <ListGroup.Item>Time: {event.time}</ListGroup.Item>
                   <ListGroup.Item>Category: {event.category}</ListGroup.Item>
                   <ListGroup.Item>Status: {event.countInStock > 0 ? 'In Stock' : 'Out Of Stock'}</ListGroup.Item>
+                  {event.countInStock>0 && (
+                    <ListGroupItem>
+                      <Row>
+                        <Col>no of tickets:</Col>
+                      </Row>
+                      <Col>
+                        <Form.Control as ="select" value={qty} onChange={e=>setQty(e.target.value)}>
+                            {
+                              [...Array(10).keys()].map(x=>(
+                                <option key={x+1} value={x+1}>{x+1}</option>
+                              ))
+                            }
+                        </Form.Control>
+                      </Col>
+                    </ListGroupItem>                  )}
+                  
                   </Card.Text>
                   </Card.Body>
                 </ListGroup>
@@ -68,9 +89,10 @@ const {loading, event, error} = eventDetails
         <Button
                         className='btn-block'
                         type='button'
+                        onClick={buyTicketHandler}
                         disabled={event.countInStock === 0}
                       >
-                        Add To Cart
+                        BUY TICKETS
                       </Button>
         </Card.Text>
       

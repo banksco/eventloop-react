@@ -8,6 +8,7 @@ export const addEventToCart = (id, qty) => async (dispatch, getState) => {
     type: CART_ADD_EVENT,
     payload: {
       id: data._id,
+      image: data.image,
       title: data.title,
       date: data.date,
       time: data.time,

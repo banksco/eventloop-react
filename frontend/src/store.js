@@ -2,7 +2,7 @@ import {configureStore,combineReducers} from '@reduxjs/toolkit'
 import { eventDetailsReducer, eventReducer } from './reducers/eventReducer'
 import { cartReducer } from './reducers/cartReducer'
 import { userLoginReducer } from './reducers/userReducer'
-import { userLogin } from './actions/userActions'
+
 
 const rootReducer=combineReducers({
     eventList : eventReducer,

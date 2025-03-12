@@ -18,7 +18,7 @@ const Header = () => {
 
           </Nav>
           <Nav className='ms-auto'>
-            <NavLink><i class="fa-solid fa-ticket-simple"></i> Tickets</NavLink>
+            <NavLink href='/cart'><i class="fa-solid fa-ticket-simple"></i> Tickets</NavLink>
             <NavLink><i class="fa-solid fa-user"></i> Login/SignUp</NavLink>
 
 

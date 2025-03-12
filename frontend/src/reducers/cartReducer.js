@@ -12,7 +12,7 @@ export const cartReducer = (state = { cartEvents: [] }, action) => {
         return {
           ...state,
           cartEvents: state.cartEvents.map((x) =>
-            x.id === event.id ? event : x
+            x.id === exist_event.id ? event : x
           ),
         };
       } else {

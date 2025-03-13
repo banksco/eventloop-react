@@ -1,5 +1,6 @@
 import express from 'express'
-import { fetchAllEvents, fetchEventsById } from '../controllers/eventControllers'
+import asyncHandler from 'express-async-handler'
+import { fetchAllEvents, fetchEventsById } from '../controllers/eventControllers.js'
 
 const router=express.Router()
 

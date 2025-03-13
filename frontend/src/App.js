@@ -7,6 +7,7 @@ import HomeScreen from "./screens/HomeScreen";
 import EventScreen from "./screens/EventScreen";
 import CategoryScreen from "./screens/CategoryScreen";
 import CartScreen from "./screens/CartScreen";
+import LoginScreen from "./screens/LoginScreen";
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/category/:categ" element={<CategoryScreen/>}></Route>
             <Route path="/cart" element={<CartScreen/>}></Route>
             <Route path="/cart/:id" element={<CartScreen/>}></Route>
+            <Route path="/login" element={<LoginScreen/>}></Route>
           
           </Routes>
           

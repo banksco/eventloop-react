@@ -12,7 +12,7 @@ const rootReducer=combineReducers({
 })
 
 const loadedEvents=localStorage.getItem('cartEvents')?JSON.parse(localStorage.getItem('cartEvents')):[]
-const userInfoFromLocalStorage=localStorage.getItem('userInfo')?JSON.parse(localStorage.getItem('userInfo')):[]
+const userInfoFromLocalStorage=localStorage.getItem('userInfo')?JSON.parse(localStorage.getItem('userInfo')):null
 
 const initialState={
     selectedEvents:{cartEvents:loadedEvents},

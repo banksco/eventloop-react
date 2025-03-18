@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
 import { saveShippingAddress } from "../actions/shippingActions";
+import CheckOutSteps from "../components/CheckOutSteps";
 
 const ShippingScreen = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const ShippingScreen = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("in submitHandler")
+    //dispatching action saveShipping Address in localStorage
     dispatch(saveShippingAddress({ address, city, postalCode, country }));
     navigate("/payment");
   };
@@ -25,6 +26,7 @@ const ShippingScreen = () => {
   return (
     <>
       <FormContainer>
+        <CheckOutSteps step1 step2></CheckOutSteps>
         <Form>
           <Form.Group className="mb-3" controlID="address">
             <Form.Label>Address</Form.Label>

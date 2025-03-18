@@ -22,13 +22,15 @@ const CartScreen = () => {
 
   const cart = useSelector((state) => state.selectedEvents)
   const { cartEvents } = cart
-console.log("cartevents:"+cartEvents)
   const removeEventFromCartHandler = (id) => {
     dispatch(removeEventFromCart(id))
   }
-
+  const {userInfo}=useSelector(state=>state.userLogin)
   const checkoutHandler = () => {
+    if(userInfo)
     navigate('/login?redirect=/shipping')
+    else
+    navigate('/login')
   }
 
   return (

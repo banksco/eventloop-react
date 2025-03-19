@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose, { mongo } from 'mongoose'
  
  const orderSchema = mongoose.Schema({
    user: {
@@ -18,10 +18,8 @@ import mongoose from 'mongoose'
      }
    }],
    shippingAddress: {
-     address: {type: String, required: true},
-     city: {type: String, required: true},
-     postalCode: {type: String, required: true},
-     country: {type: String, required: true},
+     type:mongoose.Schema.Types.ObjectId,
+     ref:'shippingAddress'
    },
    paymentMethod: {
      type: String,

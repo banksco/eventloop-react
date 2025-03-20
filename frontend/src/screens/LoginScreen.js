@@ -38,7 +38,7 @@ const LoginScreen = () => {
           <Loader />
         ) : (
           <Form>
-            <Form.Group controlId="email">
+            <Form.Group className="mb-3" controlId="email">
               <Form.Label>Email Address</Form.Label>
               <Form.Control
                 type="email"
@@ -48,7 +48,7 @@ const LoginScreen = () => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="password">
+            <Form.Group className="mb-3" controlId="password">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 placeholder="Enter Password"
@@ -57,12 +57,13 @@ const LoginScreen = () => {
                 onChange={(e) => setPassword(e.target.value)}
               ></Form.Control>
             </Form.Group>
+            
             <Button type="submit" onClick={submitHandler}>
               Sign In
             </Button>
-
-            <h6>new user ?<Link to='/register'>Register</Link></h6>
-          </Form>
+            <Form.Group className="mb-3">
+            <Form.Label>new user ?<Link to={redirect? `/register?redirect=${redirect}`:'/register'}>Register</Link></Form.Label>
+            </Form.Group></Form>
         )}
       </FormContainer>
     </>

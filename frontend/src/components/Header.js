@@ -3,14 +3,13 @@ import { Nav, Navbar, Container, NavLink, NavDropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../actions/userActions";
 import { Link } from "react-router-dom";
-import { deleteShippingAddress } from "../actions/shippingActions";
 
 const Header = () => {
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.userLogin);
   const logoutHandler=()=>{
     dispatch(logOut())
-    dispatch(deleteShippingAddress())
+    
   }
    return (
     <>

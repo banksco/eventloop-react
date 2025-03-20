@@ -1,7 +1,7 @@
 import express from 'express'
 import { authUser, registerNewUser } from '../controllers/userControllers.js'
 import { protect } from '../middleware/authMiddleware.js'
-import { addShipAddress } from '../controllers/shippingController.js'
+import { addShipAddress, getShipAddress } from '../controllers/shippingController.js'
 
 const router = express.Router()
 
@@ -22,5 +22,7 @@ router.route('/saveAddress').post(protect,addShipAddress)
 //@route /api/users/register
 //@access public
 router.post('/register',registerNewUser)
+
+router.route('/getAddress').get(protect,getShipAddress)
 
 export default router

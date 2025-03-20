@@ -1,5 +1,5 @@
 import axios from "axios"
-import { SHIPPING_ADDRESS_DELETE, SHIPPING_ADDRESS_SAVE } from "../constants/shippingConstants"
+import { SHIPPING_ADDRESS_DELETE, SHIPPING_ADDRESS_REQUEST, SHIPPING_ADDRESS_SAVE } from "../constants/shippingConstants"
 
 export const saveShippingAddress=({address,city,postalCode,country})=>async(dispatch,getState)=>{
     
@@ -40,5 +40,26 @@ export const deleteShippingAddress=()=>(dispatch)=>{
     })
 
     localStorage.removeItem('sAddress')
+
+}
+
+
+export const getShippingAddress=()=>async(dispatch,getState)=>{
+    const {userInfo}=getState().userLogin
+
+    const config={
+        headers:{
+            "Authorization":`Bearer ${userInfo.token}`
+        }
+    }
+const {data}= await axios.get('/api/users/getAddress',config)
+
+
+dispatch({
+    type:SHIPPING_ADDRESS_REQUEST,
+    payload:data
+    
+})
+localStorage.setItem('sAddress',JSON.stringify(data))
 
 }

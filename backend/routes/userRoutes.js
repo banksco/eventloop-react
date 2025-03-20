@@ -1,5 +1,5 @@
 import express from 'express'
-import { authUser } from '../controllers/userControllers.js'
+import { authUser, registerNewUser } from '../controllers/userControllers.js'
 import { protect } from '../middleware/authMiddleware.js'
 import { addShipAddress } from '../controllers/shippingController.js'
 
@@ -16,5 +16,11 @@ router.post('/login', authUser)
 //@route POST /api/users/saveAddress
 //@access Private
 router.route('/saveAddress').post(protect,addShipAddress)
+
+
+//@desc register new user
+//@route /api/users/register
+//@access public
+router.post('/register',registerNewUser)
 
 export default router

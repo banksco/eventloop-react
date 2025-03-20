@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { Button, Form } from "react-bootstrap";
@@ -60,6 +60,8 @@ const LoginScreen = () => {
             <Button type="submit" onClick={submitHandler}>
               Sign In
             </Button>
+
+            <h6>new user ?<Link to='/register'>Register</Link></h6>
           </Form>
         )}
       </FormContainer>

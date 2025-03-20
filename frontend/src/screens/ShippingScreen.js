@@ -18,13 +18,20 @@ const ShippingScreen = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    //dispatching action saveShipping Address in localStorage
-    dispatch(saveShippingAddress({ address, city, postalCode, country }));
-    navigate("/payment");
+    //if shipping address already exists in db and you want to use that -->continue to payment
+
+    if (
+      shippingAddress.address !== address ||
+      shippingAddress.city !== city ||
+      shippingAddress.postalCode !== postalCode ||
+      shippingAddress.country !== country
+    ) {
+      dispatch(saveShippingAddress({ address, city, postalCode, country }));
+    } else {
+      navigate("/payment");
+    }
   };
 
-
-  
   return (
     <>
       <FormContainer>
@@ -76,7 +83,7 @@ const ShippingScreen = () => {
           </Form.Group>
 
           <Button type="submit" onClick={submitHandler}>
-            Save
+            Continue
           </Button>
         </Form>
       </FormContainer>

@@ -4,6 +4,8 @@ import { cartReducer } from './reducers/cartReducer'
 import { newUserRegister, userLoginReducer } from './reducers/userReducer'
 import { shippingAddressReducer } from './reducers/shippingAddressReducer'
 import { createOrderReducer } from './reducers/orderReducer'
+import { paymentMethodReducer } from './reducers/paymentMethodReducer'
+
 
 
 const rootReducer=combineReducers({
@@ -15,15 +17,19 @@ const rootReducer=combineReducers({
     shippingAddress:shippingAddressReducer,
     placeOrder:createOrderReducer,
     
+    paymentMethod: paymentMethodReducer
 })
 
 const loadedEvents=localStorage.getItem('cartEvents')?JSON.parse(localStorage.getItem('cartEvents')):[]
 const userInfoFromLocalStorage=localStorage.getItem('userInfo')?JSON.parse(localStorage.getItem('userInfo')):null
 const sAddressFromLocalStorage=localStorage.getItem('sAddress')?JSON.parse(localStorage.getItem('sAddress')):{}
+const paymentMethodFromLocalStorage=localStorage.getItem('paymentMethod')?JSON.parse(localStorage.getItem('paymentMethod')):{}
+
 const initialState={
     selectedEvents:{cartEvents:loadedEvents},
     userLogin:{userInfo:userInfoFromLocalStorage},
-    shippingAddress:{shippingAddress:sAddressFromLocalStorage}
+    shippingAddress:{shippingAddress:sAddressFromLocalStorage},
+    paymnentMethod: {paymentMethod: paymentMethodFromLocalStorage}
 }
 
 const store=configureStore({

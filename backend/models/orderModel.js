@@ -22,8 +22,8 @@ import mongoose, { mongo } from 'mongoose'
      ref:'shippingAddress'
    },
    paymentMethod: {
-     type: String,
-     required: true
+     type: mongoose.Schema.Types.ObjectId,
+     ref:'paymentMethod'
    },
    paymentResult: {
      id: {type: String},

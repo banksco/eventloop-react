@@ -2,14 +2,14 @@ import asyncHandler from "express-async-handler";
 import PaymentMethod from "../models/paymentMethodModel.js";
 
 export const addPaymentMethod = asyncHandler(async (req, res) => {
-  const { paymentmethod } = req.body;
+  const { paymentMethod } = req.body;
 
-  const addPaymentMethod = new PaymentMethod({
+  const addedPaymentMethod = new PaymentMethod({
     user: req.user._id,
     paymentMethod,
   });
 
-  const createdAddress= await addPaymentMethod.save();
+  const createdPaymentMethod= await addedPaymentMethod.save();
   res.status(201).json(createdPaymentMethod)
 
 });

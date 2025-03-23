@@ -2,6 +2,7 @@ import express from 'express'
 import { authUser, registerNewUser } from '../controllers/userControllers.js'
 import { protect } from '../middleware/authMiddleware.js'
 import { addShipAddress, getShipAddress } from '../controllers/shippingController.js'
+import { addPaymentMethod } from '../controllers/paymentMethodController.js'
 
 const router = express.Router()
 
@@ -17,6 +18,11 @@ router.post('/login', authUser)
 //@access Private
 router.route('/saveAddress').post(protect,addShipAddress)
 
+
+//@desc save payment method
+//@route POST /api/users/savePaymentMethod
+//@access Private
+router.route('/savePaymentMethod').post(protect,addPaymentMethod)
 
 //@desc register new user
 //@route /api/users/register

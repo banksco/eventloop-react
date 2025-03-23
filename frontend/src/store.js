@@ -26,7 +26,7 @@ const initialState={
     selectedEvents:{cartEvents:loadedEvents},
     userLogin:{userInfo:userInfoFromLocalStorage},
     shippingAddress:{shippingAddress:sAddressFromLocalStorage},
-    paymnentMethod: {paymentMethod: paymentMethodFromLocalStorage}
+    paymnentMethod: {paymentMethod:paymentMethodFromLocalStorage}
 }
 
 const store=configureStore({

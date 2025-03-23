@@ -11,7 +11,6 @@ export const fetchAllEvents=asyncHandler(async(req,res)=>{
 export const fetchEventsById=asyncHandler(async(req,res)=>{
     
     const event= await( Event.findById(req.params.id))
-  
     if(event){
      res.json(event)
     }

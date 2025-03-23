@@ -7,9 +7,11 @@ const addOrderItems = asyncHandler(async (req, res) => {
     paymentMethod,
     itemsPrice,
     taxPrice,
+    shippingAddress,
     shippingPrice,
     totalPrice,
   } = req.body;
+ 
 
   //Stop empty cart from proceeding to checkout
   if (orderItems && orderItems.length === 0) {
@@ -21,6 +23,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
       user: req.user._id,
       orderItems,
       paymentMethod,
+      shippingAddress,
       itemsPrice,
       taxPrice,
       shippingPrice,

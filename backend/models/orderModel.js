@@ -11,7 +11,7 @@ import mongoose, { mongo } from 'mongoose'
      qty: {type: Number, required: true},
      image: {type: String, required: true},
      ticket_price: {type: Number, required: true},
-     event: {
+     id: {
        type: mongoose.Schema.Types.ObjectId,
        required: true,
        ref: 'events'

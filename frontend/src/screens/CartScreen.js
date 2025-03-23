@@ -30,7 +30,7 @@ const CartScreen = () => {
   const checkoutHandler = () => {
     if(userInfo){
     navigate('/login?redirect=/shipping')
-    dispatch(getShippingAddress())
+   dispatch(getShippingAddress())
     }
     else
     navigate('/login')

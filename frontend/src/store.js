@@ -3,6 +3,7 @@ import { eventDetailsReducer, eventReducer } from './reducers/eventReducer'
 import { cartReducer } from './reducers/cartReducer'
 import { newUserRegister, userLoginReducer } from './reducers/userReducer'
 import { shippingAddressReducer } from './reducers/shippingAddressReducer'
+import { createOrderReducer } from './reducers/orderReducer'
 
 
 const rootReducer=combineReducers({
@@ -11,7 +12,9 @@ const rootReducer=combineReducers({
     selectedEvents:cartReducer,
     userLogin:userLoginReducer,
     userRegister:newUserRegister,
-    shippingAddress:shippingAddressReducer
+    shippingAddress:shippingAddressReducer,
+    placeOrder:createOrderReducer,
+    
 })
 
 const loadedEvents=localStorage.getItem('cartEvents')?JSON.parse(localStorage.getItem('cartEvents')):[]

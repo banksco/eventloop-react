@@ -12,3 +12,4 @@ export const savePaymentMethod = (paymentMethod) => async(dispatch) => {
     }catch(error){
         throw new Error('Payment Method Fail')
 }
+}

@@ -3,6 +3,7 @@ import { eventDetailsReducer, eventReducer } from './reducers/eventReducer'
 import { cartReducer } from './reducers/cartReducer'
 import { newUserRegister, userLoginReducer } from './reducers/userReducer'
 import { shippingAddressReducer } from './reducers/shippingAddressReducer'
+import { createOrderReducer } from './reducers/orderReducer'
 import { paymentMethodReducer } from './reducers/paymentMethodReducer'
 
 
@@ -14,6 +15,8 @@ const rootReducer=combineReducers({
     userLogin:userLoginReducer,
     userRegister:newUserRegister,
     shippingAddress:shippingAddressReducer,
+    placeOrder:createOrderReducer,
+    
     paymentMethod: paymentMethodReducer
 })
 

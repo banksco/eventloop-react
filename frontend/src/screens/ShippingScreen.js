@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
 import { saveShippingAddress } from "../actions/shippingActions";
 import CheckOutSteps from "../components/CheckOutSteps";
-import { useEffect } from "react";
+
 const ShippingScreen = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -15,15 +15,6 @@ const ShippingScreen = () => {
   const [city, setCity] = useState(shippingAddress.city);
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
   const [country, setCountry] = useState(shippingAddress.country);
-
-  useEffect(() => {
-    if (shippingAddress) {
-      setAddress(shippingAddress.address || '');
-      setCity(shippingAddress.city || '');
-      setPostalCode(shippingAddress.postalCode || '');
-      setCountry(shippingAddress.country || '');
-    }
-  }, [shippingAddress]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -36,7 +27,6 @@ const ShippingScreen = () => {
       shippingAddress.country !== country
     ) {
       dispatch(saveShippingAddress({ address, city, postalCode, country }));
-      navigate("/placeorder")
     } else {
       navigate("/placeorder");
     }

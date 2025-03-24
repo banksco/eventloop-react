@@ -3,7 +3,6 @@ import { Nav, Navbar, Container, NavLink, NavDropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../actions/userActions";
 import { Link } from "react-router-dom";
-
 const Header = () => {
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.userLogin);
@@ -11,6 +10,10 @@ const Header = () => {
     dispatch(logOut())
     
   }
+
+
+ 
+
    return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -33,7 +36,7 @@ const Header = () => {
               </NavLink>
               {userInfo ? (
                 <NavDropdown title={userInfo.name}>
-                  <NavDropdown.Item as={Link} to="/">
+                  <NavDropdown.Item as={Link} to="/profile">
                     Profile
                   </NavDropdown.Item>
                   <NavDropdown.Item onClick={logoutHandler}>

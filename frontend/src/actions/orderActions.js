@@ -1,3 +1,4 @@
+
 import axios from "axios"
 import { PLACE_ORDER_FAIL, PLACE_ORDER_RESQUEST, PLACE_ORDER_SUCCESS } from "../constants/orderConstants"
 
@@ -7,7 +8,7 @@ export const placeOrderActions=(order)=>async(dispatch,getState)=>{
         type:PLACE_ORDER_RESQUEST
 
     })
-
+console.log("order"+order)
     const {userInfo}=getState().userLogin
     const config={
         headers:{

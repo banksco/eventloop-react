@@ -4,14 +4,12 @@ import Order from "../models/orderModel.js";
 const addOrderItems = asyncHandler(async (req, res) => {
   const {
     orderItems,
-    paymentMethod,
+    shippingAddress,
     itemsPrice,
     taxPrice,
-    shippingAddress,
     shippingPrice,
     totalPrice,
   } = req.body;
- 
 
   //Stop empty cart from proceeding to checkout
   if (orderItems && orderItems.length === 0) {
@@ -22,7 +20,6 @@ const addOrderItems = asyncHandler(async (req, res) => {
     const order = new Order({
       user: req.user._id,
       orderItems,
-      paymentMethod,
       shippingAddress,
       itemsPrice,
       taxPrice,

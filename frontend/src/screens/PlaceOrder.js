@@ -49,7 +49,7 @@ const PlaceOrder = () => {
   
     
       orderItems: cartEvents, 
-      // paymentMethod: "paypal" ,
+       
 
       itemsPrice:updatedCart.itemsPrice,
     taxPrice:updatedCart.taxPrice,

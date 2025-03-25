@@ -7,6 +7,7 @@ import { Button, Form } from "react-bootstrap";
 import FormContainer from "../components/FormContainer";
 import { Login } from "../actions/userActions";
 
+
 const LoginScreen = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ const LoginScreen = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(Login(email, password));
+   
   };
   return (
     <>

@@ -8,6 +8,7 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGOUT,
   USER_PROFILE_FAIL,
+  USER_PROFILE_REMOVE,
   USER_PROFILE_REQUEST,
   USER_PROFILE_SUCCESS,
 } from "../constants/userConstants";
@@ -48,10 +49,13 @@ export const Login = (email, password) => async (dispatch) => {
 };
 
 export const logOut = () => (dispatch) => {
- 
+ localStorage.removeItem('cartEvents')
+ localStorage.removeItem('sAddress')
+ localStorage.removeItem('userInfo')
+ localStorage.removeItem('profileInfo')
 
   dispatch({
-    type: USER_LOGOUT,
+    type: USER_LOGOUT,USER_PROFILE_REMOVE
   });
 };
 
@@ -107,11 +111,12 @@ export const getUserProfileInfo=()=>async(dispatch,getState)=>{
   }
 
   const {data}=await axios.get('/api/users/getProfileInfo',config)
-  console.log("In actions data"+data.user)
   dispatch({
     type:USER_PROFILE_SUCCESS,
     payload:data
-  })}
+  })
+  localStorage.setItem('profileInfo',JSON.stringify(data))
+}
   catch(error){
     dispatch({
       type:USER_PROFILE_FAIL,

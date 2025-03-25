@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -11,80 +11,81 @@ const ShippingScreen = () => {
   const navigate = useNavigate();
   const { shippingAddress } = useSelector((state) => state.shippingAddress);
 
-  const [address, setAddress] = useState(shippingAddress.address);
-  const [city, setCity] = useState(shippingAddress.city);
-  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
-  const [country, setCountry] = useState(shippingAddress.country);
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [country, setCountry] = useState("");
+
+  useEffect(() => {
+    if (shippingAddress) {
+      setAddress(shippingAddress.address);
+      setCity(shippingAddress.city);
+      setPostalCode(shippingAddress.postalCode);
+      setCountry(shippingAddress.country);
+    }
+  }, [shippingAddress]); 
 
   const submitHandler = (e) => {
     e.preventDefault();
-    //if shipping address already exists in db and you want to use that -->continue to payment
-
     if (
-      shippingAddress.address !== address ||
-      shippingAddress.city !== city ||
-      shippingAddress.postalCode !== postalCode ||
-      shippingAddress.country !== country
+      shippingAddress?.address !== address ||
+      shippingAddress?.city !== city ||
+      shippingAddress?.postalCode !== postalCode ||
+      shippingAddress?.country !== country
     ) {
       dispatch(saveShippingAddress({ address, city, postalCode, country }));
-    } else {
-      navigate("/placeorder");
     }
+    navigate("/placeorder");
   };
 
   return (
     <>
       <FormContainer>
         <CheckOutSteps step1 step2></CheckOutSteps>
-        <Form>
-          <Form.Group className="mb-3" controlID="address">
+        <Form onSubmit={submitHandler}>
+          <Form.Group className="mb-3" controlId="address">
             <Form.Label>Address</Form.Label>
-
             <Form.Control
               type="text"
               placeholder="Enter address"
               value={address}
               required
               onChange={(e) => setAddress(e.target.value)}
-            ></Form.Control>
+            />
           </Form.Group>
-          <Form.Group className="mb-3" controlID="city">
+          <Form.Group className="mb-3" controlId="city">
             <Form.Label>City</Form.Label>
-
             <Form.Control
               type="text"
-              placeholder="Enter address"
+              placeholder="Enter city"
               value={city}
               required
               onChange={(e) => setCity(e.target.value)}
-            ></Form.Control>
+            />
           </Form.Group>
-          <Form.Group className="mb-3" controlID="postalCode">
+          <Form.Group className="mb-3" controlId="postalCode">
             <Form.Label>Postal code</Form.Label>
-
             <Form.Control
               type="text"
               placeholder="Enter postal code"
               value={postalCode}
               required
               onChange={(e) => setPostalCode(e.target.value)}
-            ></Form.Control>
+            />
           </Form.Group>
-          <Form.Group className="mb-3" controlID="country">
+          <Form.Group className="mb-3" controlId="country">
             <Form.Label>Country</Form.Label>
-
             <Form.Control
               type="text"
               placeholder="Enter Country"
               value={country}
               required
               onChange={(e) => setCountry(e.target.value)}
-            ></Form.Control>
+            />
           </Form.Group>
 
-          <Button type="submit" onClick={submitHandler}>
-            Continue
-          </Button>
+          
+          <Button type="submit">Continue</Button>
         </Form>
       </FormContainer>
     </>

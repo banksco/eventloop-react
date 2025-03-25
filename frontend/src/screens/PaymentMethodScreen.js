@@ -16,11 +16,13 @@ import CheckOutSteps from '../components/CheckOutSteps'
   if(!shippingAddress){
     navigate('/shipping')
   }
+  
 
-  const [paymentMethod, setPaymentMethod] = useState([])
+  const [paymentMethod, setPaymentMethod] = useState({})
 
   const submitHandler = (e) => {
     e.preventDefault()
+    console.log("paymentMethod"+paymentMethod)
     dispatch(savePaymentMethod(paymentMethod))
     navigate('/placeorder')
   }
@@ -38,8 +40,8 @@ import CheckOutSteps from '../components/CheckOutSteps'
                label='PayPal or Credit Card'
                id='PayPal'
                name='paymentMethod'
-               value={paymentMethod}
-               checked
+               value='PayPal'
+              checked
                onChange={(e) => setPaymentMethod(e.target.value)}
              ></Form.Check>
             <Form.Check
@@ -47,7 +49,7 @@ import CheckOutSteps from '../components/CheckOutSteps'
                label='Stripe'
                id='Stripe'
                name='paymentMethod'
-               value={paymentMethod}
+               value='Stripe'
                checked
                onChange={(e) => setPaymentMethod(e.target.value)}
              ></Form.Check> 

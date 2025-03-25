@@ -10,7 +10,7 @@ import {Link} from 'react-router-dom'
 
 
 const PlaceOrder = () => {
-   const navigate=useNavigate()
+   const navigate=useNavigate();
   const dispatch = useDispatch();
  
   const { cartEvents } = useSelector((state) => state.selectedEvents);
@@ -23,7 +23,7 @@ const PlaceOrder = () => {
     return (Math.round(num*100)/100).toFixed(2)
   }
   
-   updatedCart.shippingAddress=sAddress._id
+   updatedCart.shippingAddress=(sAddress._id)
    updatedCart.itemsPrice=addDecimals(cartEvents.reduce((acc,item)=>acc+item.qty*item.ticket_price,0))
    updatedCart.taxPrice=addDecimals(updatedCart.itemsPrice*0.15)
    updatedCart.shippingPrice=addDecimals(updatedCart.itemsPrice>1000?0:100)

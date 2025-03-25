@@ -29,7 +29,7 @@ const initialState={
     selectedEvents:{cartEvents:loadedEvents},
     userLogin:{userInfo:userInfoFromLocalStorage},
     shippingAddress:{shippingAddress:sAddressFromLocalStorage},
-    paymnentMethod: {paymentMethod:paymentMethodFromLocalStorage}
+    paymentMethod: {paymentMethod:paymentMethodFromLocalStorage}
 }
 
 const store=configureStore({

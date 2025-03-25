@@ -4,7 +4,7 @@ import { addEventToCart, removeEventFromCart } from "../actions/cartActions";
 import { useLocation, useParams, useNavigate, Link  } from "react-router-dom";
 import Message from "../components/Message";
 import {Row,Col, ListGroup, Image, Form, Card, Button } from 'react-bootstrap'
-import { getShippingAddress } from "../actions/shippingActions";
+//import { getShippingAddress } from "../actions/shippingActions";
 
 
 const CartScreen = () => {
@@ -29,8 +29,8 @@ const CartScreen = () => {
   const {userInfo}=useSelector(state=>state.userLogin)
   const checkoutHandler = () => {
     if(userInfo){
-    navigate('/login?redirect=/shipping')
-   dispatch(getShippingAddress())
+    navigate('/login?redirect=/payment')
+   //dispatch(getShippingAddress())
     }
     else
     navigate('/login')

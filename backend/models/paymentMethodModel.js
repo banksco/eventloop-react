@@ -8,8 +8,7 @@ const paymentMethodSchema= mongoose.Schema({
                 ref:'users'
             },
 
-            PayPal: {type: String},
-            Stripe: {type: String},
+    paymentMethod: {type: String,required: true},
 },
 {timestamps:true})
 

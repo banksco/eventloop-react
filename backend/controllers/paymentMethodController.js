@@ -2,16 +2,14 @@ import asyncHandler from "express-async-handler";
 import PaymentMethod from "../models/paymentMethodModel.js";
 
 export const addPaymentMethod = asyncHandler(async (req, res) => {
-  console.log("in backend"+req.body.paymentMethod)
+  const { paymentMethod } = req.body;
 
-  const addedPaymentMethod = new PaymentMethod({
+  const addPaymentMethod = new PaymentMethod({
     user: req.user._id,
-    PayPal,
-    Stripe,
-
+    paymentMethod,
   });
 
-  const createdPaymentMethod= await addedPaymentMethod.save();
+  const createdPaymentMethod = await addPaymentMethod.save();
   res.status(201).json(createdPaymentMethod)
 
 });

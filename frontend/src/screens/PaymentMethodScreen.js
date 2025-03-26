@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
  import { Form, Button, Col } from 'react-bootstrap'
  import { useDispatch, useSelector } from 'react-redux'
  import { useNavigate } from 'react-router-dom'
@@ -10,19 +10,20 @@ import CheckOutSteps from '../components/CheckOutSteps'
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  // questions
   const {shippingAddress} = useSelector((state) => state.shippingAddress)
 
-  if(!shippingAddress){
+// useEffect to redirect to shipping 
+useEffect(() => {
+  if (!shippingAddress) {
     navigate('/shipping')
   }
+}, [shippingAddress, navigate])
   
 
-  const [paymentMethod, setPaymentMethod] = useState({})
+  const [paymentMethod, setPaymentMethod] = useState('')
 
   const submitHandler = (e) => {
     e.preventDefault()
-    console.log("paymentMethod"+paymentMethod)
     dispatch(savePaymentMethod(paymentMethod))
     navigate('/placeorder')
   }
@@ -41,7 +42,7 @@ import CheckOutSteps from '../components/CheckOutSteps'
                id='PayPal'
                name='paymentMethod'
                value='PayPal'
-              checked
+              checked = {paymentMethod === 'PayPal'}
                onChange={(e) => setPaymentMethod(e.target.value)}
              ></Form.Check>
             <Form.Check
@@ -50,7 +51,7 @@ import CheckOutSteps from '../components/CheckOutSteps'
                id='Stripe'
                name='paymentMethod'
                value='Stripe'
-               checked
+               checked = {paymentMethod === 'Stripe'}
                onChange={(e) => setPaymentMethod(e.target.value)}
              ></Form.Check> 
            </Col>

@@ -3,7 +3,7 @@
 import axios from 'axios'
 import { PAYMENT_METHOD_DELETE, PAYMENT_METHOD_SAVE } from '../constants/paymentMethodConstants'
 
-export const savePaymentMethod=({PayPal,Stripe})=>async(dispatch,getState)=>{
+export const savePaymentMethod=({paymentMethod})=>async(dispatch,getState)=>{
 
     try{
 
@@ -16,30 +16,26 @@ export const savePaymentMethod=({PayPal,Stripe})=>async(dispatch,getState)=>{
         
         }}
         const {data}=await axios.post('/api/users/savePaymentMethod',
-            {PayPal,Stripe},
+            {paymentMethod},
             config
-        )
+        );
 
         dispatch({
             type:PAYMENT_METHOD_SAVE,
             payload:data
         })
-    
-
-
-
-
-
-
-
-        localStorage.setItem('paymentMethod',JSON.stringify(data))
+        localStorage.setItem('paymentMethod',JSON.stringify(data));
 
     }
     catch(error){
-        throw new Error('Payment Method Fail')
-    }
-
-}
+        dispatch({
+            type: 'PAYMENT_METHOD_ERROR', 
+            payload: error.response && error.response.data.message
+              ? error.response.data.message
+              : error.message,
+          });
+        }
+      };
 
 export const deletePaymentMethod=()=>(dispatch)=>{
     dispatch({

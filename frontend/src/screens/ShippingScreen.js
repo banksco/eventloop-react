@@ -36,9 +36,9 @@ const ShippingScreen = () => {
       shippingAddress.country !== country
     ) {
       dispatch(saveShippingAddress({ address, city, postalCode, country }));
-      navigate("/placeorder")
+      navigate("/payment")
     } else {
-      navigate("/placeorder");
+      navigate("/payment");
     }
   };
 

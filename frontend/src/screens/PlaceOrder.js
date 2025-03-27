@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Col, Image, Row, ListGroup, Card } from "react-bootstrap";
 import { placeOrderActions } from "../actions/orderActions";
 import CheckOutSteps from "../components/CheckOutSteps";
-import { useEffect } from "react";
+
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 // import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
@@ -40,9 +40,12 @@ const PlaceOrder = () => {
 
   const { order } = placedOrder;
 
-  useEffect(() => {
-    if (order) navigate(`/order/${order.id}`);
-  }, [dispatch, navigate, order]);
+  useEffect(()=>{
+    if (order)
+    navigate(`/order/${order._id}`);
+  })
+   
+ 
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -58,7 +61,8 @@ const PlaceOrder = () => {
     shippingPrice:updatedCart.shippingPrice,
     totalPrice:updatedCart.totalPrice,
     }));
-
+    
+    
 
   };
 

@@ -29,7 +29,7 @@ const CartScreen = () => {
   const {userInfo}=useSelector(state=>state.userLogin)
   const checkoutHandler = () => {
     if(userInfo){
-    navigate('/login?redirect=/payment')
+    navigate('/login?redirect=/shipping')
    //dispatch(getShippingAddress())
     }
     else

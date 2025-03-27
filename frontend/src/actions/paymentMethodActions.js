@@ -3,10 +3,10 @@
 import axios from 'axios'
 import { PAYMENT_METHOD_DELETE, PAYMENT_METHOD_SAVE } from '../constants/paymentMethodConstants'
 
-export const savePaymentMethod=({paymentMethod})=>async(dispatch,getState)=>{
+export const savePaymentMethod=(paymentMethod)=>async(dispatch,getState)=>{
 
     try{
-
+            
         const {userInfo}=getState().userLogin
         const config={
             
@@ -16,7 +16,7 @@ export const savePaymentMethod=({paymentMethod})=>async(dispatch,getState)=>{
         
         }}
         const {data}=await axios.post('/api/users/savePaymentMethod',
-            {paymentMethod},
+            paymentMethod,
             config
         );
 

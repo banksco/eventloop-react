@@ -167,7 +167,7 @@ useEffect(() => {
                                    {
                                        amount: {
                                            currency_code: "USD",
-                                           value: updatedOrder.totalPrice,
+                                           value: order.totalPrice,
                                        },
                                    },
                                ],
@@ -176,8 +176,9 @@ useEffect(() => {
                                return orderId;
                            });
                    }}
-                   onApprove={function (data, actions) {
+                   onApprove={function(data, actions){
                        return actions.order.capture().then(function () {
+                        console.log("Approved")
                            var paymentResult = {
                              id: data.paymentID,
                              status: 'Paid',

@@ -8,7 +8,7 @@ export const cartReducer = (state = { cartEvents: [] }, action) => {
       const exist_event = state.cartEvents.find((x) => x.id === event.id);
 
       if (exist_event) {
-        
+        console.log("exist_event"+exist_event)
         return {
           ...state,
           cartEvents: state.cartEvents.map((x) =>

@@ -2,6 +2,7 @@ import axios from "axios";
 import { CART_ADD_EVENT, CART_REMOVE_EVENT } from "../constants/cartConstants";
 
 export const addEventToCart = (id, qty) => async (dispatch, getState) => {
+  
   const { data } = await axios.get(`/api/events/${id}`);
 
   dispatch({

@@ -1,7 +1,8 @@
 import express from 'express'
-import { authUser, getProfileInfo, registerNewUser } from '../controllers/userControllers.js'
+import { authUser, registerNewUser } from '../controllers/userControllers.js'
 import { protect } from '../middleware/authMiddleware.js'
 import { addShipAddress, getShipAddress } from '../controllers/shippingController.js'
+import { addPaymentMethod } from '../controllers/paymentMethodController.js'
 
 const router = express.Router()
 
@@ -18,13 +19,16 @@ router.post('/login', authUser)
 router.route('/saveAddress').post(protect,addShipAddress)
 
 
+//@desc save payment method
+//@route POST /api/users/savePaymentMethod
+//@access Private
+router.route('/savePaymentMethod').post(protect,addPaymentMethod)
+
 //@desc register new user
 //@route /api/users/register
 //@access public
 router.post('/register',registerNewUser)
 
 router.route('/getAddress').get(protect,getShipAddress)
-
-router.route('/getProfileInfo').get(protect,getProfileInfo)
 
 export default router

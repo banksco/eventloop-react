@@ -1,10 +1,10 @@
 import {configureStore,combineReducers} from '@reduxjs/toolkit'
 import { eventDetailsReducer, eventReducer } from './reducers/eventReducer'
 import { cartReducer } from './reducers/cartReducer'
-import { newUserRegister, userLoginReducer, userProfileReducer } from './reducers/userReducer'
+import { newUserRegister, userLoginReducer } from './reducers/userReducer'
 import { shippingAddressReducer } from './reducers/shippingAddressReducer'
-import { paymentMethodReducer } from './reducers/paymentMethodReducer'
 import { createOrderReducer } from './reducers/orderReducer'
+import { paymentMethodReducer } from './reducers/paymentMethodReducer'
 
 
 
@@ -16,7 +16,6 @@ const rootReducer=combineReducers({
     userRegister:newUserRegister,
     shippingAddress:shippingAddressReducer,
     placeOrder:createOrderReducer,
-    userProfile:userProfileReducer,
     
     paymentMethod: paymentMethodReducer
 })
@@ -31,9 +30,7 @@ const initialState={
     selectedEvents:{cartEvents:loadedEvents},
     userLogin:{userInfo:userInfoFromLocalStorage},
     shippingAddress:{shippingAddress:sAddressFromLocalStorage},
-    paymentMethod: {paymentMethod:paymentMethodFromLocalStorage},
-    
-
+    paymentMethod: {paymentMethod:paymentMethodFromLocalStorage}
 }
 
 const store=configureStore({

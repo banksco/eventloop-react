@@ -19,8 +19,12 @@ export const addShipAddress = asyncHandler(async (req, res) => {
 });
 
 export const getShipAddress=asyncHandler(async(req,res)=>{
+  try{
   const id=req.user._id
   const user=await User.findById(id)
   const shippingAddress=await ShippingAddress.findOne({user:user._id})
-  res.status(201).json(shippingAddress)
+  res.status(201).json(shippingAddress)}
+  catch(error){
+    throw new error("no shipping address")
+  }
 })

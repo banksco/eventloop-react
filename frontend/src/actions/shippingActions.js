@@ -45,6 +45,7 @@ export const deleteShippingAddress=()=>(dispatch)=>{
 
 
 export const getShippingAddress=()=>async(dispatch,getState)=>{
+    console.log("data")
     const {userInfo}=getState().userLogin
 
     const config={
@@ -53,7 +54,7 @@ export const getShippingAddress=()=>async(dispatch,getState)=>{
         }
     }
 const {data}= await axios.get('/api/users/getAddress',config)
-
+console.log("data"+data)
 
 dispatch({
     type:SHIPPING_ADDRESS_REQUEST,

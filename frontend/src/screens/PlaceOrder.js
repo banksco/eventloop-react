@@ -24,7 +24,7 @@ const PlaceOrder = () => {
     return (Math.round(num * 100) / 100).toFixed(2);
   };
 
-  updatedCart.shippingAddress = sAddress._id;
+  updatedCart.shippingAddress = (sAddress._id);
   updatedCart.itemsPrice = addDecimals(
     cartEvents.reduce((acc, item) => acc + item.qty * item.ticket_price, 0)
   );
@@ -46,24 +46,20 @@ const PlaceOrder = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(
-      placeOrderActions({
-        orderItems: cartEvents,
+    dispatch(placeOrderActions({
+  
+    
+      orderItems: cartEvents, 
+      // paymentMethod: "paypal" ,
 
-        itemsPrice: updatedCart.itemsPrice,
-        taxPrice: updatedCart.taxPrice,
-        shippingAddress: sAddress._id,
-        shippingPrice: updatedCart.shippingPrice,
-        totalPrice: updatedCart.totalPrice,
-      })
-    );
-  };
+      itemsPrice:updatedCart.itemsPrice,
+    taxPrice:updatedCart.taxPrice,
+    shippingAddress:sAddress._id,
+    shippingPrice:updatedCart.shippingPrice,
+    totalPrice:updatedCart.totalPrice,
+    }));
 
-  const initialOptions = {
-    client_id:
-      "AeUXWzMI1DFh8EnGT1jvtJoc0n3hRWLTAouMie3JZaSFFG0TLDpQI7zMmhPFcWY2nprsiak9qOpV92KD",
-    intent: "capture",
-    currency: "USD",
+
   };
 
   return (

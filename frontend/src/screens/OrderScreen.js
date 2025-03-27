@@ -112,7 +112,7 @@ useEffect(() => {
                              </Link>
                            </Col>
                            <Col md={4}>
-                             {event.qty} x ${event.price} = ${event.qty * event.price}
+                             {event.qty} x ${event.ticket_price} = ${event.qty * event.ticket_price}
                            </Col>
                          </Row>
                        </ListGroup.Item>
@@ -131,7 +131,7 @@ useEffect(() => {
                  <ListGroup.Item>
                    <Row>
                      <Col>Items</Col>
-                     <Col>${updatedOrder.itemsPrice}</Col>
+                     <Col>${order.itemsPrice}</Col>
                    </Row>
                  </ListGroup.Item>
                  <ListGroup.Item>
@@ -149,7 +149,7 @@ useEffect(() => {
                  <ListGroup.Item>
                    <Row>
                      <Col>Total</Col>
-                     <Col>${updatedOrder.totalPrice}</Col>
+                     <Col>${order.totalPrice}</Col>
                    </Row>
                  </ListGroup.Item>
                  {!order.isPaid && (

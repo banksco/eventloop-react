@@ -7,12 +7,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllEvents } from '../actions/eventActions'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import { getUserProfileInfo } from '../actions/userActions'
 
 const HomeScreen = () => {
 const dispatch=useDispatch()
 useEffect(() => {
   dispatch(fetchAllEvents())
-
+  dispatch(getUserProfileInfo())
 },[dispatch])
 
 

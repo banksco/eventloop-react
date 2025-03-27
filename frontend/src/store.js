@@ -1,7 +1,7 @@
 import {configureStore,combineReducers} from '@reduxjs/toolkit'
 import { eventDetailsReducer, eventReducer } from './reducers/eventReducer'
 import { cartReducer } from './reducers/cartReducer'
-import { newUserRegister, userLoginReducer } from './reducers/userReducer'
+import { newUserRegister, userLoginReducer, userProfileReducer } from './reducers/userReducer'
 import { shippingAddressReducer } from './reducers/shippingAddressReducer'
 import { createOrderReducer } from './reducers/orderReducer'
 import { paymentMethodReducer } from './reducers/paymentMethodReducer'
@@ -16,7 +16,7 @@ const rootReducer=combineReducers({
     userRegister:newUserRegister,
     shippingAddress:shippingAddressReducer,
     placeOrder:createOrderReducer,
-    
+    userProfile:userProfileReducer,
     paymentMethod: paymentMethodReducer
 })
 

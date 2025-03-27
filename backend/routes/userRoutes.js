@@ -3,7 +3,7 @@ import { authUser, registerNewUser } from '../controllers/userControllers.js'
 import { protect } from '../middleware/authMiddleware.js'
 import { addShipAddress, getShipAddress } from '../controllers/shippingController.js'
 import { addPaymentMethod } from '../controllers/paymentMethodController.js'
-
+import { getProfileInfo } from '../controllers/userControllers.js'
 const router = express.Router()
 
 // @desc    Auth user and generate token 
@@ -30,5 +30,7 @@ router.route('/savePaymentMethod').post(protect,addPaymentMethod)
 router.post('/register',registerNewUser)
 
 router.route('/getAddress').get(protect,getShipAddress)
+
+router.route('/getProfileInfo').get(protect,getProfileInfo)
 
 export default router

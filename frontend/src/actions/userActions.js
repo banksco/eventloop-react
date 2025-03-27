@@ -7,6 +7,9 @@ import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGOUT,
+  USER_PROFILE_FAIL,
+  USER_PROFILE_REQUEST,
+  USER_PROFILE_SUCCESS,
 } from "../constants/userConstants";
 
 export const Login = (email, password) => async (dispatch) => {
@@ -90,4 +93,35 @@ export const newUserRegistration=({name,email,password})=>async(dispatch)=>{
 
         })
     }
+}
+
+export const getUserProfileInfo=()=>async(dispatch,getState)=>{
+  try{
+  const {userInfo}=getState().userLogin
+  dispatch({
+    type:USER_PROFILE_REQUEST
+  })
+  console.log("entered"+userInfo.token)
+  const config={
+    headers:{
+    "Authorization":`Bearer ${userInfo.token}`}
+  }
+
+  const {data}=await axios.get('/api/users/getProfileInfo',config)
+  console.log("In actions data"+data.user)
+  dispatch({
+    type:USER_PROFILE_SUCCESS,
+    payload:data
+  })
+
+  localStorage.setItem('profileInfo',JSON.stringify(data))
+}
+  catch(error){
+    dispatch({
+      type:USER_PROFILE_FAIL,
+      payload:error.response && error.response.data.message?
+      error.response.data.message:error.message
+    })
+  }
+
 }

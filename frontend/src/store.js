@@ -25,14 +25,14 @@ const loadedEvents=localStorage.getItem('cartEvents')?JSON.parse(localStorage.ge
 const userInfoFromLocalStorage=localStorage.getItem('userInfo')?JSON.parse(localStorage.getItem('userInfo')):null
 const sAddressFromLocalStorage=localStorage.getItem('sAddress')?JSON.parse(localStorage.getItem('sAddress')):{}
 const paymentMethodFromLocalStorage=localStorage.getItem('paymentMethod')?JSON.parse(localStorage.getItem('paymentMethod')):{}
-const profileInfoFromLocalStorage=localStorage.getItem('profileInfo')?JSON.parse(localStorage.getItem('profileInfo')):{}
+
 
 const initialState={
     selectedEvents:{cartEvents:loadedEvents},
     userLogin:{userInfo:userInfoFromLocalStorage},
     shippingAddress:{shippingAddress:sAddressFromLocalStorage},
     paymentMethod: {paymentMethod:paymentMethodFromLocalStorage},
-    userProfile:{profile:profileInfoFromLocalStorage}
+    
 
 }
 

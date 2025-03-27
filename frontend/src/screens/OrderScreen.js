@@ -1,24 +1,23 @@
-import React from 'react'
- import { Link  } from 'react-router-dom'
- //import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import React, { useEffect } from 'react'
+ import { Link, useParams  } from 'react-router-dom'
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
  import { Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
- import { useSelector } from 'react-redux'
+ import { useSelector, useDispatch } from 'react-redux'
  import Message from '../components/Message'
  import Loader from '../components/Loader'
-//  import { getOrderDetailsActions, getPayPalKey, placeOrderActions } from '../actions/orderActions';
-//  import { ORDER_PAY_RESET } from '../constants/orderConstants';
+import { getOrderDetailsActions, getPayPalKey, payOrder } from '../actions/orderActions';
+import { ORDER_PAY_RESET } from '../constants/orderConstants';
 
  const OrderScreen = () => {
-    //const params = useParams()
-   // const orderId = params.id
+const params = useParams()
+const orderId = params.id
   
-    //const dispatch = useDispatch()
-// What is our version of order Details state in the store
-    const orderDetails = useSelector((state) => state.placeOrder)
+const dispatch = useDispatch()
+    const orderDetails = useSelector((state) => state.orderDetails)
     const {order, loading, error} = orderDetails
   
-    // const orderPay = useSelector((state) => state.placeOrder)
-    // const {loading: loadingPay, success: successPay, paypalKey} = orderPay
+  const orderPay = useSelector((state) => state.orderPay)
+ const {loading: loadingPay, success: successPay, paypalKey} = orderPay
   
     let updatedOrder = {}
     if(!loading){
@@ -37,13 +36,13 @@ import React from 'react'
        )    
     }
   
-    // useEffect(() => {
-    //   dispatch(getPayPalKey())
-    //   if (!order || successPay){
-    //     dispatch({type: ORDER_PAY_RESET})
-    //     dispatch(getOrderDetailsActions(orderId))
-    //   }
-    // },[dispatch, orderId, order, successPay])
+useEffect(() => {
+  dispatch(getPayPalKey())
+    if (!order || successPay){
+      dispatch({type: ORDER_PAY_RESET})
+      dispatch(getOrderDetailsActions(orderId))
+  }
+ },[dispatch, orderId, order, successPay])
   
     return loading ? (
       <Loader />
@@ -153,7 +152,7 @@ import React from 'react'
                      <Col>${updatedOrder.totalPrice}</Col>
                    </Row>
                  </ListGroup.Item>
-                 {/* {!order.isPaid && (
+                 {!order.isPaid && (
                    <ListGroup.Item>
                      {loadingPay && <Loader />}
                        <PayPalScriptProvider options={{ "client-id": paypalKey,
@@ -185,13 +184,13 @@ import React from 'react'
                              update_time: new Date().getDate().toString(),
                              email_address: order.user.email
                            }
-                           dispatch(placeOrderActions(orderId, paymentResult))
+                           dispatch(payOrder(orderId, paymentResult))
                        });
                    }}
                            />
                        </PayPalScriptProvider>
                    </ListGroup.Item>
-                 )} */}
+                 )} 
                </ListGroup>
              </Card>
            </Col>

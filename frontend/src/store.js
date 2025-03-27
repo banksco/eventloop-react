@@ -3,7 +3,7 @@ import { eventDetailsReducer, eventReducer } from './reducers/eventReducer'
 import { cartReducer } from './reducers/cartReducer'
 import { newUserRegister, userLoginReducer, userProfileReducer } from './reducers/userReducer'
 import { shippingAddressReducer } from './reducers/shippingAddressReducer'
-import { createOrderReducer } from './reducers/orderReducer'
+import { createOrderReducer, orderDetailsReducer, orderPayReducer } from './reducers/orderReducer'
 import { paymentMethodReducer } from './reducers/paymentMethodReducer'
 
 
@@ -17,7 +17,10 @@ const rootReducer=combineReducers({
     shippingAddress:shippingAddressReducer,
     placeOrder:createOrderReducer,
     userProfile:userProfileReducer,
-    paymentMethod: paymentMethodReducer
+    paymentMethod: paymentMethodReducer,
+    createOrder: createOrderReducer,
+    orderDetails: orderDetailsReducer,
+    orderPay: orderPayReducer,
 })
 
 const loadedEvents=localStorage.getItem('cartEvents')?JSON.parse(localStorage.getItem('cartEvents')):[]

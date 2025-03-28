@@ -12,12 +12,13 @@ export const savePaymentMethod = (paymentMethod) => async (dispatch, getState) =
       },
     };
 
-    // Payment Method Selection Verification
+    // paymentMethod Selection Verification
     if (!paymentMethod) {
       throw new Error('Please select a payment method');
     }
 
     const { data } = await axios.post('/api/users/savePaymentMethod', { paymentMethod }, config);
+
 
     
     dispatch({

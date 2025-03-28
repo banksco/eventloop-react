@@ -7,6 +7,7 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
  import Loader from '../components/Loader'
 import { getOrderDetailsActions, getPayPalKey, payOrder } from '../actions/orderActions';
 import { ORDER_PAY_RESET } from '../constants/orderConstants';
+import { savePaymentMethod } from '../actions/paymentMethodActions';
 
  const OrderScreen = () => {
 const params = useParams()
@@ -43,6 +44,15 @@ useEffect(() => {
       dispatch(getOrderDetailsActions(orderId))
   }
  },[dispatch, orderId, order, successPay])
+
+ const paymentMethod = useSelector((state) => state.paymentMethod.paymentMethod); 
+
+ useEffect(() => {
+   dispatch(getOrderDetailsActions(orderId));
+   if (!paymentMethod) {
+     dispatch(savePaymentMethod(''));
+   }
+ }, [dispatch, orderId, paymentMethod]);
   
     return loading ? (
       <Loader />
@@ -81,7 +91,7 @@ useEffect(() => {
                  <h2>Payment Method</h2>
                  <p>
                    <strong>Method: </strong>
-                   {order.paymentMethod}
+                   {paymentMethod && paymentMethod.paymentMethod ? paymentMethod.paymentMethod : 'Not Selected'}
                  </p>
                  {order.isPaid ? (
                    <Message variant='success'>Paid on {order.paidAt}</Message>

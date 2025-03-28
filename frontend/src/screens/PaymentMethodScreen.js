@@ -24,10 +24,14 @@ useEffect(() => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    dispatch(savePaymentMethod(paymentMethod))
-    navigate('/placeorder')
-  }
+    if (!paymentMethod) {
+      alert('Please select a payment method');
+      return;
+    }
   
+    dispatch(savePaymentMethod(paymentMethod));
+    navigate('/placeorder');
+  };
   return (
     <FormContainer>
        <CheckOutSteps step1 step2 step3 />

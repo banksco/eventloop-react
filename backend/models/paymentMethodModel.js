@@ -8,7 +8,8 @@ const paymentMethodSchema= mongoose.Schema({
                 ref:'users'
             },
 
-    paymentMethod: {type: String,required: true},
+    paymentMethod: {type: String,
+                    required: true},
 },
 {timestamps:true})
 

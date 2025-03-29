@@ -6,7 +6,7 @@ import Message from "../components/Message";
 import { ListGroup } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
-import {Row,Col,Image} from 'react-bootstrap'
+import {Row,Col,Image, Button} from 'react-bootstrap'
 
 
 const ProfileScreen = () => {
@@ -60,6 +60,12 @@ loading ?(<Loader></Loader>): error ?(<Message>{error}</Message>): (
                 {profile.shippingAddress.country}
               </p></>):(<p>No shipping Address found</p>)}
             </ListGroup.Item>
+            <ListGroup.Item>
+           
+              </ListGroup.Item>
+              <Link to="/update">
+            <Button variant="primary">Edit Profile</Button>
+          </Link>
           </ListGroup>
         
       </>

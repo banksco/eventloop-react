@@ -5,6 +5,7 @@ import { newUserRegister, userLoginReducer, userProfileReducer } from './reducer
 import { shippingAddressReducer } from './reducers/shippingAddressReducer'
 import { createOrderReducer, orderDetailsReducer, orderPayReducer } from './reducers/orderReducer'
 import { paymentMethodReducer } from './reducers/paymentMethodReducer'
+import { updateProfileReducer } from './reducers/userReducer'
 
 
 
@@ -21,6 +22,7 @@ const rootReducer=combineReducers({
     createOrder: createOrderReducer,
     orderDetails: orderDetailsReducer,
     orderPay: orderPayReducer,
+    updateProfile: updateProfileReducer
 })
 
 const loadedEvents=localStorage.getItem('cartEvents')?JSON.parse(localStorage.getItem('cartEvents')):[]

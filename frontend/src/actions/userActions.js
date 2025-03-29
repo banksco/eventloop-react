@@ -10,6 +10,9 @@ import {
   USER_PROFILE_FAIL,
   USER_PROFILE_REQUEST,
   USER_PROFILE_SUCCESS,
+  USER_UPDATE_PROFILE_SUCCESS,
+  USER_UPDATE_PROFILE_FAIL
+
 } from "../constants/userConstants";
 
 export const Login = (email, password) => async (dispatch) => {
@@ -125,3 +128,36 @@ export const getUserProfileInfo=()=>async(dispatch,getState)=>{
   }
 
 }
+
+// Profile Update Actions 
+export const updateUserProfile = (profileData) => async (dispatch, getState) => {
+  try {
+    const { userLogin } = getState();
+    const { userInfo } = userLogin;
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.put('/api/users/profile', profileData, config);
+
+    dispatch({
+      type: USER_UPDATE_PROFILE_SUCCESS,
+      payload: data,
+    });
+
+    dispatch({
+      type: USER_PROFILE_SUCCESS,
+      payload: data,
+    });
+    
+  } catch (error) {
+    dispatch({
+      type: USER_UPDATE_PROFILE_FAIL,
+      payload: error.response ? error.response.data.message : error.message,
+    });
+  }
+};

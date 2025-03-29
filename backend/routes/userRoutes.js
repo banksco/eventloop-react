@@ -1,5 +1,5 @@
 import express from 'express'
-import { authUser, registerNewUser } from '../controllers/userControllers.js'
+import { authUser, registerNewUser, updateProfileInfo } from '../controllers/userControllers.js'
 import { protect } from '../middleware/authMiddleware.js'
 import { addShipAddress, getShipAddress } from '../controllers/shippingController.js'
 import { addPaymentMethod } from '../controllers/paymentMethodController.js'
@@ -32,5 +32,11 @@ router.post('/register',registerNewUser)
 router.route('/getAddress').get(protect,getShipAddress)
 
 router.route('/getProfileInfo').get(protect,getProfileInfo)
+
+//@desc Update User Profile
+//@route PUT /api/users/register
+//@access private
+router.route('/api/users/profile').put(protect,updateProfileInfo)
+
 
 export default router

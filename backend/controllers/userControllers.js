@@ -80,4 +80,21 @@ catch(error){
 
 })
 
-export { authUser,registerNewUser,getProfileInfo };
+const updateProfileInfo=asyncHandler(async (req, res) => {
+  const { name, email, shippingAddress } = req.body;
+
+  try {
+    const user = await User.findById(req.user.id)
+
+    if (name) user.name = name;
+    if (email) user.email = email;
+    if (shippingAddress) user.shippingAddress = shippingAddress;
+
+    await user.save();
+    res.json({ message: 'Profile updated successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error updating profile' });
+  }
+});
+
+export { authUser,registerNewUser,getProfileInfo, updateProfileInfo };

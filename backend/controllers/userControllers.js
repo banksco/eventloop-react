@@ -74,10 +74,6 @@ const getProfileInfo = asyncHandler(async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-
-})
-
 const updateProfileInfo=asyncHandler(async (req, res) => {
   const { name, email, shippingAddress } = req.body;
 
@@ -96,6 +92,4 @@ const updateProfileInfo=asyncHandler(async (req, res) => {
 });
 
 export { authUser,registerNewUser,getProfileInfo, updateProfileInfo };
-=======
-export { authUser, registerNewUser, getProfileInfo };
->>>>>>> 7d76bf1a040d5c0ce09ad4f15820f2d68b172c63
+

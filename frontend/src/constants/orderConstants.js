@@ -13,3 +13,9 @@ export const ORDER_PAY_FAIL = "ORDER_PAY_FAIL"
 
 export const PAYPAL_KEY = 'PAYPAL_KEY'
 export const ORDER_PAY_RESET = "ORDER_PAY_RESET"
+
+
+
+export const STRIPE_PAY_REQUEST = 'STRIPE_PAY_REQUEST';
+export const STRIPE_PAY_SUCCESS = 'STRIPE_PAY_SUCCESS';
+export const STRIPE_PAY_FAIL = 'STRIPE_PAY_FAIL';

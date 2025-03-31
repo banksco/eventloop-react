@@ -48,7 +48,6 @@ const findOrderById = asyncHandler(async (req, res) => {
 
 const orderPaymentUpdate = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
-  console.log("in baxckend"+order)
   if (order) {
     order.isPaid = true, 
     order.paidAt = Date.now()

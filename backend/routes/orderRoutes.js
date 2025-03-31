@@ -1,6 +1,7 @@
 import express from 'express'
 import { addOrderItems, findOrderById, orderPaymentUpdate } from '../controllers/orderController.js'
 import { protect } from '../middleware/authMiddleware.js'
+import { processStripePayment } from '../controllers/stripeController.js'
 const router=express.Router()
 
 
@@ -20,6 +21,11 @@ router.route('/:id').get(protect,findOrderById)
 //@Route PUT/api/orders/:id/pay
 //@access Protected
 router.route('/:id/pay').put(protect,orderPaymentUpdate)
+
+//@desc STRIPE API
+//@Route POST/api/orders/:id/stripepay
+//@access Protected
+router.route('/:id/stripepay').post(protect, processStripePayment);
 
 
 

@@ -10,6 +10,7 @@ const ShippingScreen = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { shippingAddress } = useSelector((state) => state.shippingAddress);
+  const {userProfile}=useSelector(state=>state.userProfile)
 
   const [address, setAddress] = useState(shippingAddress.address);
   const [city, setCity] = useState(shippingAddress.city);

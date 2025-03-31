@@ -22,61 +22,59 @@ const authUser = asyncHandler(async (req, res) => {
   }
 });
 
+const registerNewUser = asyncHandler(async (req, res) => {
+  const { name, email, password } = req.body;
+  const existUser = await User.findOne({ email });
+  if (existUser) {
+    res.status(400);
+    throw new Error("User Already Exists");
+  }
 
-const registerNewUser =asyncHandler(async(req,res)=>{
-    const {name,email,password}=req.body
-    const existUser= await User.findOne({email})
-if(existUser){
-    res.status(400)
-    throw new Error('User Already Exists')
-}
-
-
-const user= await User.create({
+  const user = await User.create({
     name,
     email,
-   password: bcrypt.hashSync(password)
-    
-    
-})
+    password: bcrypt.hashSync(password),
+  });
 
-if(user){
+  if (user) {
     res.status(201).json({
-        _id:user._id,
-        name:user.name,
-        email:user.email,
-        password:user.password,
-        token:generateToken(user._id)
-    })
-}
-else{
-    res.status(400)
-    throw new Error('unable to add user data')
-}
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      password: user.password,
+      token: generateToken(user._id),
+    });
+  } else {
+    res.status(400);
+    throw new Error("unable to add user data");
+  }
+});
 
-})
+const getProfileInfo = asyncHandler(async (req, res) => {
+  console.log("Entered");
+  try {
+    const id = req.user.id;
 
-const getProfileInfo=asyncHandler(async(req,res)=>{
-  console.log("Entered")
-try{
-  const id=req.user.id
-  
-  const user=await User.findById(id).select('-password')
-  console.log("in backend"+user)
- //const order=await Order.findOne({user:req.user.id}).sort({ _id: -1 }).limit(3)
-const order=await Order.find({user:req.user.id}).sort({ _id: -1 }).limit(3)
- const shippingAddress=await ShippingAddress.findOne({user:req.user.id})
+    const user = await User.findById(id).select("-password");
+    //const order=await Order.findOne({user:req.user.id}).sort({ _id: -1 }).limit(3)
+    const order = await Order.find({ user: req.user.id })
+      .sort({ _id: -1 })
+      .limit(3);
+    const shippingAddress = await ShippingAddress.findOne({
+      user: req.user.id,
+    });
 
-return res.json({
-  user,
-  order,
-  shippingAddress}
-)
-}
-catch(error){
-  throw new Error(error.message)
-}
+    return res.json({
+      user,
+      order,
+      shippingAddress,
+    });
+  } catch (error) {
+    throw new Error(error.message);
+  }
+});
 
+<<<<<<< HEAD
 
 })
 
@@ -98,3 +96,6 @@ const updateProfileInfo=asyncHandler(async (req, res) => {
 });
 
 export { authUser,registerNewUser,getProfileInfo, updateProfileInfo };
+=======
+export { authUser, registerNewUser, getProfileInfo };
+>>>>>>> 7d76bf1a040d5c0ce09ad4f15820f2d68b172c63

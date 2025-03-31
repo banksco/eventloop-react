@@ -17,7 +17,7 @@ const PlaceOrder = () => {
     (state) => state.shippingAddress
   );
   const placedOrder = useSelector((state) => state.placeOrder);
-
+const {paymentMethod:pMethod}=useSelector(state=>state.paymentMethod)
   const updatedCart = {};
 
   const addDecimals = (num) => {
@@ -53,7 +53,7 @@ const PlaceOrder = () => {
   
     
       orderItems: cartEvents, 
-      // paymentMethod: "paypal" ,
+      paymentMethod: pMethod._id,
 
       itemsPrice:updatedCart.itemsPrice,
     taxPrice:updatedCart.taxPrice,

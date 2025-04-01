@@ -21,6 +21,19 @@ app.use('/api/orders',orderRoutes)
 app.route('/api/config/paypal').get(protect, (req, res) =>
     res.send(process.env.PAYPAL_CLIENT_ID))
 
-/* error Middle ware code */
+
+const __dirname = path.resolve()
+if (process.env.NODE_ENV === 'production'){
+    app.use(express.static(path.join(__dirname, '/frontend/build')))
+    app.get('*', (req, res)=>{
+        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+    })
+}
+
 app.use(errorHandler)
-app.listen(7000,console.log('in server.js'))
+const port = process.env.PORT
+app.listen(port, console.log(`Server is running on port ${port}`))
+
+/* error Middle ware code */
+// app.use(errorHandler)
+// app.listen(7000,console.log('in server.js'))

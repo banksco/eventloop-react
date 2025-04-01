@@ -6,7 +6,7 @@ import orderRoutes from './routes/orderRoutes.js'
 import connectDB from './config/db.js';
 import errorHandler from './middleware/errorMiddleware.js';
 import { protect } from './middleware/authMiddleware.js'
-
+import path from 'path'
 const app = express()
 dotenv.config()
 connectDB()

@@ -153,6 +153,13 @@ export const updateUserProfile = (profileData) => async (dispatch, getState) => 
       type: USER_PROFILE_SUCCESS,
       payload: data,
     });
+
+    dispatch({
+      type: USER_PROFILE_SUCCESS,
+      payload: data,
+    });
+    
+    localStorage.setItem('profileInfo', JSON.stringify(data));
     
   } catch (error) {
     dispatch({

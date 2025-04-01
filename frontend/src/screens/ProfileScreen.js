@@ -24,12 +24,12 @@ loading ?(<Loader></Loader>): error ?(<Message>{error}</Message>): (
           <ListGroup>
             <ListGroup.Item>
               <h1>User Details</h1>
-              <p>Name : {profile.user.name}</p>
-              <p>Email : {profile.user.email}</p>
-              <p> {profile.user.isAdmin? "Admin" : "Not an Admin"}</p>
+              <p>Name : {profile?.user?.name}</p>
+              <p>Email : {profile?.user?.email}</p>
+              <p> {profile?.user?.isAdmin? "Admin" : "Not an Admin"}</p>
 
            </ListGroup.Item>
-            {order.map((items)=>
+            {order?.map((items)=>
             
             <ListGroup.Item disabled={!order }>
                 <h1>order Items</h1>

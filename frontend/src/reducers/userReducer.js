@@ -87,12 +87,6 @@ export const updateProfileReducer = (state = {}, action) => {
         error: action.payload, 
       };
 
-    case USER_PROFILE_SUCCESS:
-      return {
-        ...state,
-        profile: action.payload, 
-      };
-
     default:
       return state;
   }

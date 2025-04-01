@@ -20,7 +20,8 @@
     "client": "npm start --prefix frontend",
     "event": "concurrently \"npm run server\" \"npm run client\" ",
     "data:import": "node backend/seeder.js",
-    "data:destroy": "node backend/seeder.js -d"
+    "data:destroy": "node backend/seeder.js -d",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^3.5.1",
@@ -33,6 +34,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.10.1",
     "nodemon": "^3.1.9",
+    "path": "^0.12.7",
     "stripe": "^17.7.0"
   }
 }

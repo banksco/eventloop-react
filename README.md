@@ -50,5 +50,5 @@
 [![screenshot.png](https://i.postimg.cc/5Nm3qDKC/screenshot.png)](https://postimg.cc/jLLPR3bx)
 
 ## Order Screen Layout
-[![orderscreenscreenshot.png](https://i.postimg.cc/s2CJbjyv/orderscreenscreenshot.png)](https://postimg.cc/XrxFC0rb)
+[![os-screenshot.png](https://i.postimg.cc/J7SKjcgN/os-screenshot.png)](https://postimg.cc/mhNQsMTk)
 

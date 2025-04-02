@@ -1,5 +1,5 @@
 # EventLoop
-Visit the [EventLoop App][eventloop-url] to see it live.
+[Visit the EventLoop App](https://apple-pie-03597-d1b1c78536a9.herokuapp.com/)
 
 ## YouTube Video Links 
 - Courtney's Link: [(https://youtu.be/PRfsq-IdzUg)]

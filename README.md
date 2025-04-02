@@ -49,3 +49,6 @@
 ## Index Layout
 [![screenshot.png](https://i.postimg.cc/5Nm3qDKC/screenshot.png)](https://postimg.cc/jLLPR3bx)
 
+## Order Screen Layout
+[![orderScreenshot.png](https://imgur.com/a/b806shq)]
+

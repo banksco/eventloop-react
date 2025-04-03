@@ -2,6 +2,7 @@
 [Visit the EventLoop App](https://apple-pie-03597-d1b1c78536a9.herokuapp.com/)
 
 ## YouTube Video Links 
+- Assignment-3b Link:[(https://youtu.be/sr702jkqM88)]
 - Courtney's Link: [(https://youtu.be/PRfsq-IdzUg)]
 - Akila's Link:[(https://youtu.be/CJwg1OZYAho)]
 
